@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude 實際使用篇（新人版）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+<nav class="map" aria-label="章節導覽">
+  <h2>依實際工作順序</h2>
+  <ol>
+    <li><a href="#c1"><span class="n">1</span>對話框怎麼用</a>
+      <ol><li><a href="#c1-box">輸入區元件</a></li><li><a href="#c1-model">模型怎麼選</a></li><li><a href="#c1-file">上傳檔案</a></li></ol></li>
+    <li><a href="#c2"><span class="n">2</span>指令怎麼下</a>
+      <ol><li><a href="#c2-four">四要素</a></li><li><a href="#c2-cmp">好壞對照</a></li><li><a href="#c2-lib">業務範例庫</a></li></ol></li>
+    <li><a href="#c3"><span class="n">3</span>來回修正</a></li>
+    <li><a href="#c4"><span class="n">4</span>Projects 實作</a></li>
+    <li><a href="#c5"><span class="n">5</span>Skills 實作</a></li>
+    <li><a href="#c6"><span class="n">6</span>Artifacts 產出</a></li>
+    <li><a href="#c7"><span class="n">7</span>產出 Word／PPT／Excel</a></li>
+    <li><a href="#c8"><span class="n">8</span>進階與自動化</a></li>
+    <li><a href="#c9"><span class="n">9</span>限制與查證</a></li>
+    <li><a href="#c10"><span class="n">10</span>七日練習清單</a></li>
+  </ol>
+</nav>
+
+<main>
+<ul class="docnav" aria-label="教學文件切換">
+  <li><a href="index.html">① 介面操作與設定</a></li>
+  <li><a href="usage.html" aria-current="page">② 實際使用篇</a></li>
+</ul>
+<header class="hero">
+  <h1>Claude 實際使用篇</h1>
+  <p>第一份教會你「按鈕在哪裡」，這一份教你「怎麼把事情做完」。內容依實際工作順序編排：先學會下指令，再學會修正，最後把重複性業務固化成專案與技能。所有範例以救護科日常業務為情境。</p>
+  <ul class="route" aria-label="操作路徑">
+    <li><b>1</b>會問</li><li><b>2</b>問得準</li><li><b>3</b>改得動</li><li><b>4</b>存成專案</li><li><b>5</b>固化成技能</li>
+  </ul>
+</header>
+
+<!-- 1 -->
+<section class="ch" id="c1">
+  <div class="ch-head"><span class="ch-num">1</span><h2>對話框怎麼用</h2></div>
+  <p class="lead">畫面正中央的輸入框是整個工具的主要入口。除了打字，還有四個常被忽略、但影響成果甚鉅的控制項。</p>
+
+  <h3 id="c1-box">1.1 輸入區元件</h3>
+  <div class="pair">
+    <div class="ui" aria-hidden="true">
+      <div class="sec">How can I help you today?</div>
+      <div class="row">請協助起草一份簽……</div>
+      <div class="row hl"><span class="ico">＋</span>附加檔案<span class="pin">1</span></div>
+      <div class="row"><span class="ico">⚙</span>工具與技能<span class="pin">2</span></div>
+      <div class="row"><span class="ico">◷</span>延伸思考<span class="pin">3</span></div>
+      <div class="row"><span class="ico">◇</span>模型名稱<span class="right">點選可切換</span><span class="pin">4</span></div>
+    </div>
+    <ol class="steps">
+      <li><span class="pin">1</span><div><b>附加檔案（＋）</b><p>可上傳 PDF、Word、Excel、圖片、純文字。上傳後直接提問即可，例如「這份會議紀錄裡，哪些是本科的待辦？」詳見 1.3。</p></div></li>
+      <li><span class="pin">2</span><div><b>工具與技能</b><p>此處可確認本次對話可用的能力：網路搜尋、程式執行與檔案建立、已連接的服務（Gmail、日曆、雲端硬碟等）。若 Claude 回覆「無法搜尋網路」，多半是這裡或 Settings → Capabilities 未開啟。</p></div></li>
+      <li><span class="pin">3</span><div><b>延伸思考（Extended thinking）</b><p>開啟後會先做較長的推理再回答。<b>適合</b>：法規競合分析、預算數字推估、政策方案比較。<b>不必開</b>：翻譯、摘要、格式轉換——只會拖慢速度。</p></div></li>
+      <li><span class="pin">4</span><div><b>模型切換</b><p>輸入框下方顯示目前使用的模型，點選可更換。選擇原則見 1.2。</p></div></li>
+    </ol>
+  </div>
+  <div class="note">
+    <p><b>基本鍵盤操作：</b><span class="kbd">Enter</span> 送出、<span class="kbd">Shift</span>＋<span class="kbd">Enter</span> 換行（貼多段文字時很重要）、<span class="kbd">Ctrl</span>＋<span class="kbd">,</span> 開啟設定。</p>
+  </div>
+
+  <h3 id="c1-model">1.2 模型怎麼選</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>模型</th><th>特性</th><th>建議用在</th></tr></thead>
+    <tbody>
+      <tr><td>Opus</td><td>推理能力最強，速度較慢、消耗額度較多</td><td>政策分析、法規競合判斷、長篇報告架構、複雜預算推算</td></tr>
+      <tr><td class="rec">Sonnet</td><td>速度與品質平衡，<span class="rec">日常主力</span></td><td>公文起草、簡報、會議紀錄整理、文獻摘要——九成業務用它即可</td></tr>
+      <tr><td>Haiku</td><td>最快、最省額度，處理單純任務</td><td>翻譯、逐字稿整理、格式轉換、名詞對照</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note">
+    <p>可用模型與版本依訂閱方案而異，清單以實際畫面為準。<b>省額度的習慣：</b>先用 Sonnet 產出草稿，只有在結果不夠深入時才換 Opus 重做該段，不需要整份重來。</p>
+  </div>
+
+  <h3 id="c1-file">1.3 上傳檔案</h3>
+  <ol class="steps">
+    <li><span class="pin">1</span><div><b>一次可傳多份</b><p>例如同時上傳「去年預算書」與「今年編列原則」，再要求比對差異。</p></div></li>
+    <li><span class="pin">2</span><div><b>掃描檔也能讀</b><p>掃描的 PDF 或拍照的公文可辨識文字，但表格結構可能跑掉，數字務必人工核對。</p></div></li>
+    <li><span class="pin">3</span><div><b>上傳前先去識別化</b><p>病患姓名、身分證字號、聯絡方式、未公開的採購底價與評選委員名單，一律先遮蔽或刪除。詳見第 9 章。</p></div></li>
+  </ol>
+</section>
+
+<!-- 2 -->
+<section class="ch" id="c2">
+  <div class="ch-head"><span class="ch-num">2</span><h2>指令怎麼下</h2></div>
+  <p class="lead">同一個工具，產出品質的落差幾乎全來自指令。這一節是整份教學最值得花時間的部分。</p>
+
+  <h3 id="c2-four">2.1 好指令的四要素</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>要素</th><th>要寫什麼</th><th>範例句</th></tr></thead>
+    <tbody>
+      <tr><td>① 角色與對象</td><td>你是誰、文件給誰看</td><td>「我是消防署救護科承辦人，這份簽要陳給署長核示。」</td></tr>
+      <tr><td>② 任務與背景</td><td>要做什麼、為什麼做、依據什麼</td><td>「因應今年夏季高溫，擬修訂熱傷害到院前處置指引，請起草陳核用簽。」</td></tr>
+      <tr><td>③ 限制條件</td><td>字數、法源、期限、不得出現的內容</td><td>「說明段不超過 400 字，須援引緊急醫療救護法，不要臆測經費數字。」</td></tr>
+      <tr><td>④ 輸出格式</td><td>要的成品長什麼樣</td><td>「以三段式（主旨、說明、擬辦）呈現，主旨 60 字以內，最後另列三點待確認事項。」</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note">
+    <p><b>只記一句話的話：</b>把它當成剛報到、能力很好但完全不懂本科業務的新同仁。你會對那位同仁交代的事，就是該寫進指令的事。</p>
+  </div>
+
+  <h3 id="c2-cmp">2.2 好壞對照</h3>
+  <div class="cmp">
+    <div class="box bad">
+      <h4>✕ 效果差的指令</h4>
+      <div class="prompt"><span class="who">你</span>幫我寫一個熱傷害的公文</div>
+      <p>沒有文別、沒有對象、沒有依據、沒有格式，只能靠猜。產出通常需要整份重寫，反而更花時間。</p>
+    </div>
+    <div class="box good">
+      <h4>✓ 效果好的指令</h4>
+      <div class="prompt"><span class="who">你</span>我是消防署救護科承辦人。今年夏季熱傷害到院前案件較去年同期增加，擬修訂處置指引並函知各直轄市、縣（市）消防局。
+
+請起草一份「函」：
+1. 三段式（主旨、說明、辦法），主旨 60 字以內
+2. 說明段分項列點，敘明修訂緣由與主要修訂重點
+3. 受文者為各直轄市、縣（市）政府消防局
+4. 法規條號如需引用請標註（待查證），不要自行編造
+5. 文末另列「本文需補充的資料」清單</div>
+      <p>限制條件講清楚，尤其是「不確定就標註」，可大幅降低後續查核成本。</p>
+    </div>
+  </div>
+  <div class="note warn">
+    <p><strong>最重要的一句話：</strong>在任何涉及法規、數字、期程的指令中加上——<b>「不確定的地方請標註（待查證），不要自行推測」</b>。這句話能把最危險的錯誤從內文裡挑出來，放到你看得見的地方。</p>
+  </div>
+
+  <h3 id="c2-lib">2.3 業務範例庫</h3>
+  <p class="lead">以下可直接複製修改使用。方括號處替換為實際內容。</p>
+
+  <h4>公文起草</h4>
+  <div class="prompt"><span class="who">範例</span>身分：消防署救護科承辦人。
+任務：就［案名］起草陳核用簽。
+背景：［緣由，3 行內］
+要求：三段式（主旨／說明／擬辦）；說明分項列點；擬辦提供 2 個可行方案並比較優缺點；引用法規請標註（待查證）。</div>
+
+  <h4>預算說明書</h4>
+  <div class="prompt"><span class="who">範例</span>請協助撰寫［計畫名稱］年度預算說明書。
+已知：計畫目的［…］、辦理方式［…］、預計場次與人數［…］。
+要求：依「計畫緣由—辦理內容—經費需求—預期效益—績效指標」五段撰寫；績效指標須可量化；經費金額尚未確定，請以［金額待填］標示，並列出應編列的科目。</div>
+
+  <h4>採購規格書</h4>
+  <div class="prompt"><span class="who">範例</span>請草擬［標的名稱］採購規格書（勞務／財物）。
+要求：依政府採購法規範撰寫；列出廠商資格、工作項目、履約期限、驗收標準、付款辦法；規格不得指定特定廠牌型號，請以功能與效能描述；另列 5 項評選項目與配分建議。</div>
+
+  <h4>國際制度研究</h4>
+  <div class="prompt"><span class="who">範例</span>請比較美國、日本、澳洲三國之 EMT 分級與繼續教育時數規定。
+要求：以表格呈現（國家／分級／訓練時數／換證週期／主管機關）；每一欄位標註資料來源與年份；查得到官方文件請附連結；查不到的欄位標「未取得」，不要以推估填充。最後用 300 字說明對我國的可借鏡之處。</div>
+
+  <h4>會議紀錄整理</h4>
+  <div class="prompt"><span class="who">範例</span>附件是會議逐字稿，請整理成正式會議紀錄：
+1. 決議事項（逐項，含決議內容）
+2. 待辦事項表格（事項／主政單位／期限）
+3. 待確認爭點（會中未有結論者）
+發言內容請摘要，不要逐字照抄；發言人以職稱表示。</div>
+</section>
+
+<!-- 3 -->
+<section class="ch" id="c3">
+  <div class="ch-head"><span class="ch-num">3</span><h2>來回修正</h2></div>
+  <p class="lead">第一次的產出幾乎不會直接可用，這是正常的。真正的效率來自修正方式，而不是期待一次到位。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>情況</th><th>做法</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td>只有某一段不好</td><td>指名修改</td><td>「說明段第二點太籠統，請補上近三年案件統計的引用方式」——不要整份重來。</td></tr>
+      <tr><td>方向整個錯了</td><td><b>編輯原本的提問</b></td><td>在自己的訊息上點編輯、改好後重新送出。比在後面一直補充更有效，因為錯誤的前文不會繼續干擾。</td></tr>
+      <tr><td>想看別種寫法</td><td>要求重新產生</td><td>「同一份請再給我一個語氣更精簡的版本」，兩版並陳後擇優。</td></tr>
+      <tr><td>文件很長</td><td>先大綱後內文</td><td>「先列出章節大綱，我確認後再逐章展開」——避免長文寫錯方向而全數重做。</td></tr>
+      <tr><td>怕有疏漏</td><td>要求自我檢查</td><td>「請以承辦人角度檢查上面這份簽：有無未交代的事項、有無前後矛盾、有無需查證的數字。」</td></tr>
+      <tr><td>對話越來越鈍</td><td>開新對話</td><td>一個主題一個對話。內容累積過多時，請它先做重點摘要，再貼到新對話繼續。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note">
+    <p><b>回饋要具體。</b>「不好」「不對」無從判斷；「太口語，請改為公文語體」「條列太多，請改為敘述」才能一次改到位。</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="ch" id="c4">
+  <div class="ch-head"><span class="ch-num">4</span><h2>Projects 實作</h2></div>
+  <p class="lead">同一業務每次都要重貼背景資料，就該建專案。專案＝共用的檔案櫃＋固定的交代事項。</p>
+
+  <div class="pair">
+    <div class="ui" aria-hidden="true">
+      <div class="sec">Projects</div>
+      <div class="row hl"><span class="pin">1</span>＋ 建立專案</div>
+      <div class="row"><span class="pin">2</span>▤ 專案知識（上傳檔案）</div>
+      <div class="row"><span class="pin">3</span>✎ 專案指示</div>
+      <div class="row"><span class="pin">4</span>💬 此專案內的對話</div>
+    </div>
+    <ol class="steps">
+      <li><span class="pin">1</span><div><b>建立</b><p>左側欄 → Projects → 新增，以業務命名，例如「年度預算編列」「TECC 教官培訓案」。</p></div></li>
+      <li><span class="pin">2</span><div><b>上傳專案知識</b><p>放入該業務反覆會用到的文件：法規條文、歷年範本、既有計畫書、統計資料。專案內每次對話都讀得到，不必重傳。</p></div></li>
+      <li><span class="pin">3</span><div><b>撰寫專案指示</b><p>寫下每次都要遵守的規則，見下方範例。這是專案價值最高的部分。</p></div></li>
+      <li><span class="pin">4</span><div><b>在專案內開對話</b><p>該業務的所有對話都留在專案裡，日後回查容易，也不會與其他業務混淆。</p></div></li>
+    </ol>
+  </div>
+
+  <h3>專案指示範例（可直接改寫）</h3>
+  <div class="prompt"><span class="who">專案指示</span>【身分】本專案使用者為內政部消防署救護科承辦人。
+
+【語言與文體】一律使用繁體中文；公文採公文語體，不使用口語。
+
+【固定格式】
+- 公文一律三段式（簽：主旨／說明／擬辦；函：主旨／說明／辦法）
+- 主旨 60 字以內，說明分項列點
+- 年份採民國紀年
+
+【查證規則】
+- 法規條號、統計數字、經費金額如未出現在專案知識中，一律標註（待查證），不得自行推估
+- 引用專案知識內的文件時，註明出處檔名
+
+【每次產出結尾】另列「本文需補充事項」清單。</div>
+  <div class="note">
+    <p>專案指示修改後只影響<b>新開的對話</b>，既有對話不會自動套用。</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="ch" id="c5">
+  <div class="ch-head"><span class="ch-num">5</span><h2>Skills 實作</h2></div>
+  <p class="lead">專案指示只在該專案內有效；技能（Skill）是跨專案、跨對話都能自動套用的工作指引。科內的文書規範最適合做成技能。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th></th><th>專案指示</th><th>技能（Skill）</th></tr></thead>
+    <tbody>
+      <tr><td>作用範圍</td><td>僅該專案</td><td>所有對話</td></tr>
+      <tr><td>啟用方式</td><td>進入專案即生效</td><td>任務內容相符時自動套用，也可直接指名使用</td></tr>
+      <tr><td>適合放</td><td>該業務的背景與資料</td><td>可重複的做事方法：公文格式、預算書架構、採購文件規範</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>技能的組成</h3>
+  <p>一個技能就是一份 <code>SKILL.md</code>：開頭標示它何時該被啟用，其後是具體做法。</p>
+  <pre><code>---
+name: nfa-gongwen
+description: 消防署救護科公文起草。當使用者需要撰寫簽、函、
+  書函，或提到公文、簽稿、三段式時啟用。
+---
+
+# 公文起草
+
+## 格式規範
+- 簽：主旨、說明、擬辦
+- 函：主旨、說明、辦法
+- 主旨 60 字以內，不分段
+- 說明分項列點，以「一、二、三」編號
+
+## 撰寫原則
+1. 先確認文別、受文者、行文目的
+2. 法規條號未經確認一律標註（待查證）
+3. 金額、期程等關鍵數字以［待填］標示
+
+## 常見錯誤
+- 主旨寫成摘要（應為目的＋期望作為）
+- 說明段夾雜擬辦事項
+</code></pre>
+
+  <ol class="steps">
+    <li><span class="pin">1</span><div><b>建立</b><p>Customize → Skills → 新增。可直接在介面撰寫，或上傳寫好的 SKILL.md。</p></div></li>
+    <li><span class="pin">2</span><div><b>description 是關鍵</b><p>這一行決定技能何時被自動啟用。務必寫清楚「使用者說了什麼、要做什麼事」時該用，並把同義詞都列上（公文／簽稿／函文／三段式）。</p></div></li>
+    <li><span class="pin">3</span><div><b>先窄後寬</b><p>第一個技能建議從最常寫的一種文件開始，用順了再擴充。一次寫一個包山包海的技能，通常兩邊都不準。</p></div></li>
+    <li><span class="pin">4</span><div><b>科內共用</b><p>技能檔就是一份純文字檔，可直接傳給同仁匯入，全科產出格式即可一致。</p></div></li>
+  </ol>
+</section>
+
+<!-- 6 -->
+<section class="ch" id="c6">
+  <div class="ch-head"><span class="ch-num">6</span><h2>Artifacts 產出</h2></div>
+  <p class="lead">當產出是一份完整的文件、網頁或工具時，它會獨立顯示在右側視窗，而不是混在對話裡——這就是 Artifact。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>會變成 Artifact 的</th><th>救護科可以拿來做什麼</th></tr></thead>
+    <tbody>
+      <tr><td>單頁 HTML 工具</td><td>像您現在看的這份教學；或線上檢核表、換算工具、訓練測驗</td></tr>
+      <tr><td>長篇文件</td><td>計畫書、研究報告、出國考察報告初稿</td></tr>
+      <tr><td>圖表與流程圖</td><td>作業流程圖、組織圖、統計圖表</td></tr>
+      <tr><td>簡報頁面</td><td>政策說明、長官報告用的網頁式簡報</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <ol class="steps">
+    <li><span class="pin">1</span><div><b>怎麼要求</b><p>直接說出成品形式：「做成一頁可以直接開的 HTML 檢核表，可勾選、有進度條。」</p></div></li>
+    <li><span class="pin">2</span><div><b>怎麼修改</b><p>在同一對話內說「把第三節的表格改成兩欄」即可，會更新同一份 Artifact，不會重開一份。</p></div></li>
+    <li><span class="pin">3</span><div><b>版本</b><p>修改會留下版本紀錄，可回看先前版本。大幅改動前先說一句「保留目前版本，另做一版」較保險。</p></div></li>
+    <li><span class="pin">4</span><div><b>分享務必確認範圍</b><p>Artifact 可產生分享連結，<b>取得連結者即可檢視</b>。內含公務資訊者，分享前務必確認對象與必要性。</p></div></li>
+    <li><span class="pin">5</span><div><b>回找</b><p>左側欄 → Artifacts 可檢視歷來所有產出。</p></div></li>
+  </ol>
+</section>
+
+<!-- 7 -->
+<section class="ch" id="c7">
+  <div class="ch-head"><span class="ch-num">7</span><h2>產出 Word／PPT／Excel</h2></div>
+  <p class="lead">公文要用 Word、報告要用 PPT、統計要用 Excel。Claude 可直接產出這些檔案供下載。</p>
+
+  <div class="note">
+    <p><b>前置作業：</b>Settings → Capabilities 需開啟「程式執行與檔案建立」，否則只會得到純文字回覆。</p>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>格式</th><th>怎麼要求</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr><td>Word（.docx）</td><td>「請產出 Word 檔，標楷體、行距固定 20 點、A4 邊界 2.5 公分」</td><td>可指定字體與版面；正式發文前仍須套機關格式檢查</td></tr>
+      <tr><td>PowerPoint（.pptx）</td><td>「做成 12 頁簡報，每頁不超過 5 行，附講稿備忘稿」</td><td>明確指定頁數與每頁行數，否則容易過於文字密集</td></tr>
+      <tr><td>Excel（.xlsx）</td><td>「彙整成 Excel，含小計公式與凍結首列」</td><td>公式會實際寫入；數字來源務必自行核對</td></tr>
+      <tr><td>PDF</td><td>「把上面的文件輸出成 PDF」</td><td>亦可反向操作：上傳多份 PDF 要求合併、拆分或擷取表格</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note warn">
+    <p><strong>不要直接發文。</strong>產出檔僅為草稿：格式細節（文號欄位、簽核欄等）仍須以機關公文製作系統處理，內容也須經承辦人實質審閱。</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="ch" id="c8">
+  <div class="ch-head"><span class="ch-num">8</span><h2>進階與自動化</h2></div>
+  <p class="lead">以下功能不是新人首日必備，但熟悉基本操作後值得逐一嘗試。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>功能</th><th>做得到什麼</th><th>入門建議</th></tr></thead>
+    <tbody>
+      <tr><td>Scheduled 排程</td><td>固定時間自動執行指令，例如每週一彙整國際 EMS 動態</td><td>先把指令在一般對話試到滿意，再存成排程</td></tr>
+      <tr><td>Connectors 連接器</td><td>連接 Gmail、Google 日曆、雲端硬碟等，代為查信、排會議、讀取雲端檔案</td><td>授權時確認權限範圍；寄信、刪檔等動作應先經您確認</td></tr>
+      <tr><td>Cowork</td><td>操作本機資料夾與檔案，例如整理一整個資料夾的文件並彙整成報告</td><td>先在測試資料夾練習，確認行為符合預期再用於正式檔案</td></tr>
+      <tr><td>Claude Code</td><td>程式開發與批次檔案處理，例如把數十份 HTML 教材統一改版</td><td>非資訊背景亦可用於「大量重複的檔案處理」</td></tr>
+      <tr><td>Claude in Chrome</td><td>協助在瀏覽器查資料、填寫表單</td><td>送出前均須您確認；不要用它點開來路不明的連結</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note warn">
+    <p><strong>對外動作請保留最後一道關。</strong>寄送郵件、發送會議邀請、上傳或刪除雲端檔案等不可逆動作，請維持「Claude 準備草稿、您按送出」的原則。</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="ch" id="c9">
+  <div class="ch-head"><span class="ch-num">9</span><h2>限制與查證</h2></div>
+  <p class="lead">知道它哪裡不可靠，比知道它哪裡厲害更重要。</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>限制</th><th>會出什麼錯</th><th>因應</th></tr></thead>
+    <tbody>
+      <tr><td>會編造（幻覺）</td><td>法規條號、文獻出處、統計數字看起來很像真的，實際不存在</td><td><b>法條與數字一律自行查證。</b>指令中要求標註（待查證）</td></tr>
+      <tr><td>訓練資料有時效</td><td>不知道最近修正的法規或最新統計</td><td>要求開啟網路搜尋並附來源連結；或直接上傳最新條文</td></tr>
+      <tr><td>單一對話長度有限</td><td>對話過長時，前面的交代可能被稀釋</td><td>一主題一對話；重要規則寫進專案指示或技能</td></tr>
+      <tr><td>額度會用完</td><td>大量作業中途中斷</td><td>Settings → Usage 先確認剩餘額度與重置時間；單純任務改用輕量模型</td></tr>
+      <tr><td>不理解機關內部慣例</td><td>格式看似正確但不合本機關習慣</td><td>把本科既有範本放進專案知識，要求比照辦理</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <p><strong>公務資料紅線（與第一份教學第 3.2 節一致）</strong></p>
+    <p>本服務為商用雲端服務。以下資料<b>不得上傳</b>：病患姓名、病歷與身分證字號等個人資料；未公開之採購底價、評選委員名單與評分資料；機密或限閱公文。需分析時請先去識別化，並依機關資通安全規定辦理。</p>
+  </div>
+
+  <div class="note">
+    <p><b>定稿前的自我檢查：</b>問自己一句——「這份裡面，哪些字是我沒有親自查證過的？」把那些地方查完，才算完成。</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="ch" id="c10">
+  <div class="ch-head"><span class="ch-num">10</span><h2>七日練習清單</h2></div>
+  <p class="lead">完成第一份教學的設定後，依序做完以下八項練習，即可獨立處理日常業務。勾選狀態會保存在本瀏覽器中。</p>
+  <div class="progress"><span id="pct">0 / 8</span><div class="bar"><i id="barfill"></i></div><button class="reset" id="reset" type="button">清除勾選</button></div>
+  <ul class="check" id="checklist">
+    <li><label><input type="checkbox" data-k="u1"><span>用四要素寫一份簽的指令，並與隨手寫的版本比較差異<span class="where">第 2.1、2.2 節</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u2"><span>上傳一份既有公文，請 Claude 指出格式與用語可改進之處<span class="where">第 1.3 節</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u3"><span>練習只修改某一段，而不是整份重來<span class="where">第 3 章</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u4"><span>建立第一個專案，上傳三份範本並寫好專案指示<span class="where">第 4 章</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u5"><span>把最常寫的一種文書做成技能（SKILL.md）<span class="where">第 5 章</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u6"><span>請 Claude 產出一份 Word 或 PPT 檔並下載檢視<span class="where">第 7 章</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u7"><span>做一份國際制度比較表，並逐項查證來源是否真實存在<span class="where">第 2.3、9 章</span></span></label></li>
+    <li><label><input type="checkbox" data-k="u8"><span>設定一個每週自動執行的排程任務<span class="where">第 8 章</span></span></label></li>
+  </ul>
+</section>
+
+<footer>內容依 2026 年 9 月桌面版畫面與功能整理。功能名稱、可用模型與位置可能隨版本及訂閱方案調整，以實際畫面為準。介面與設定說明請見 <a href="index.html">① 介面操作與設定</a>。</footer>
+</main>
+</div>
+<script>
+(function(){
+  var KEY='claude-usage-checklist';
+  var boxes=[].slice.call(document.querySelectorAll('#checklist input'));
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function render(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('pct').textContent=n+' / '+boxes.length;
+    document.getElementById('barfill').style.width=(n/boxes.length*100)+'%';
+  }
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  boxes.forEach(function(b){
+    b.checked=!!state[b.dataset.k];
+    b.addEventListener('change',function(){state[b.dataset.k]=b.checked;save();render();});
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    state={};boxes.forEach(function(b){b.checked=false});save();render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
